@@ -47,5 +47,3 @@ function part_two(rotations::Array{Int}, state::Int)
 end
 res = part_two(data, 50)
 println("Part Two: $res")
-
-#6689
