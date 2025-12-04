@@ -18,16 +18,17 @@ end
 
 
 function part_one(data::Vector{Tuple{Int, Int}})
-    return sum([i for r ∈ data for i ∈ range(r[1], r[2]) if isinvalid(i, 2)])
+    res = sum([i for r ∈ data for i ∈ range(r[1], r[2]) if isinvalid(i, 2)])
+    @assert(res == 22062284697)
+    println("Part One: $res")
 end
-res = part_one(data)
-@assert(res == 22062284697)
-println("Part One: $res")
 
 
 function part_two(data::Vector{Tuple{Int, Int}})
-   return sum([i for r ∈ data for i ∈ range(r[1], r[2]) if isinvalid(i)])
+    res = sum([i for r ∈ data for i ∈ range(r[1], r[2]) if isinvalid(i)])
+    @assert(res == 46666175279)
+    println("Part Two: $res")
 end
-res = part_two(data)
-@assert(res == 46666175279)
-println("Part Two: $res")
+
+part_one(data)
+part_two(data)
