@@ -8,7 +8,7 @@ data = read_data("./Day02 - Gift Shop/data.txt")
 function isinvalid(id::Int, n = nothing)
     d = Int(floor(log10(id))+1)
     for i ∈ range(2, isnothing(n) ? d : n)
-        (d % i != 0) && (continue)
+        ((d % i) != 0) && continue
         v = id ÷ 10^(d - (d ÷ i))
         res = sum([v*10^x for x ∈ range(0, (d - (d ÷ i)), step = d ÷ i)])
         (res == id) && (return true)
@@ -29,6 +29,7 @@ function part_two(data::Vector{Tuple{Int, Int}})
     @assert(res == 46666175279)
     println("Part Two: $res")
 end
+
 
 part_one(data)
 part_two(data)
