@@ -10,14 +10,11 @@ function turnon(bank::Vector{Int}, n::Int)
     for i ∈ range(n, 1, step = -1)
         b = 0
         Δp = 0
-        for (i, j) ∈ enumerate(bank[p:(end-i+1)])
-            if(j > b)
-                b = j
-                Δp = i
-            end                  
+        for (j, k) ∈ enumerate(bank[p:(end-i+1)])
+            (k > b) && (b = k; Δp = j)
         end
         joltage = joltage*10+b
-        p = p + Δp
+        p += Δp
     end
     return joltage
 end
@@ -36,3 +33,5 @@ end
 
 part_one(data)
 part_two(data)
+
+
