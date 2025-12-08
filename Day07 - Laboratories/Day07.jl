@@ -15,8 +15,8 @@ function traversetm(start::CartesianIndex, map::Matrix{Char}, splitter = '^')
         newbeams = Set{Int64}()
         for beam ∈ beams
             if(map[y, beam] == splitter)
-                push!(newbeams, beam-1)
-                push!(newbeams, beam+1)
+                push!(newbeams, beam - 1)
+                push!(newbeams, beam + 1)
                 res += 1
             else
                 push!(newbeams, beam)
