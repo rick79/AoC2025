@@ -3,8 +3,6 @@ function read_data(path::String)
     return ([Tuple(parse.(Int, split(r, "-"))) for r ∈ eachsplit(data[1], "\n")], [parse(Int, x) for x ∈ split(data[2], "\n")])
 end
 
-data = read_data("./Day05 - Cafeteria/data.txt")
-
 
 function isfresh(ranges::Vector{Tuple{Int, Int}}, ingredient::Int)
     for r ∈ ranges
@@ -39,6 +37,9 @@ function part_two(data)
     @assert(res == 359526404143208)
     println("Part Two: $res")
 end
+
+
+data = read_data("./Day05 - Cafeteria/data.txt")
 
 part_one(data)
 part_two(data)
