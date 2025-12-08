@@ -23,8 +23,28 @@ function read_data2(path::String)
     return (rows, [string(x) for x ∈ eachsplit(lines[end], keepempty=false)])
 end
 
-data1 = read_data1("./Day06 - Trash Compactor/data.txt")
-data2 = read_data2("./Day06 - Trash Compactor/data.txt")
+
+function read_data3(path::String)
+    lines = readlines(path)
+    m = [lines[y][x] for y ∈ eachindex(lines), x ∈ eachindex(lines[1])]
+    cols = Vector{Vector{Int64}}()
+    col = Vector{Int64}()
+    for x ∈ axes(m, 2)
+        if(all(f -> isspace(f), m[1:end - 1, x]))
+            push!(cols, col)
+            col = Vector{Int64}()
+            continue
+        end
+        push!(col, parse(Int64, join(m[1:end - 1, x])))
+    end
+    push!(cols, col)
+    return (cols, [string(x) for x ∈ eachsplit(lines[end], keepempty=false)])
+end
+
+
+
+data1 =  read_data1("./Day06 - Trash Compactor/data.txt")
+data2 =  read_data2("./Day06 - Trash Compactor/data.txt")
 
 
 function part_one(data::Tuple{Matrix{Int}, Vector{String}})
