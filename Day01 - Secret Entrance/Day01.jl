@@ -2,8 +2,6 @@ function read_data(path::String)
     return [parse(Int, line[2:end]) * (line[1] == 'R' ? 1 : -1) for line ∈ readlines(path)]
 end
 
-data = read_data("./Day01 - Secret Entrance/data.txt")
-
 
 function part_one(rotations::Array{Int}, state::Int)
     res = 0
@@ -26,6 +24,9 @@ function part_two(rotations::Array{Int}, state::Int)
     @assert(res == 6689)
     println("Part Two: $res")
 end
+
+
+data = read_data("./Day01 - Secret Entrance/data.txt")
 
 part_one(data, 50)
 part_two(data, 50)
