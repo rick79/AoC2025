@@ -42,11 +42,6 @@ function read_data3(path::String)
 end
 
 
-
-data1 =  read_data1("./Day06 - Trash Compactor/data.txt")
-data2 =  read_data2("./Day06 - Trash Compactor/data.txt")
-
-
 function part_one(data::Tuple{Matrix{Int}, Vector{String}})
     res = 0
     for y ∈ axes(data[1], 1)
@@ -68,6 +63,9 @@ function part_two(data::Tuple{Vector{Vector{Int}}, Vector{String}})
     println("Part Two: $res")
 end
 
+
+data1 =  read_data1("./Day06 - Trash Compactor/data.txt")
+data2 =  read_data2("./Day06 - Trash Compactor/data.txt")
 
 part_one(data1)
 part_two(data2)
