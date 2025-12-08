@@ -2,8 +2,6 @@ function read_data(path::String)
     return [Tuple(parse.(Int, split(r, "-"))) for r ∈ eachsplit(read(path, String), ",")]
 end
 
-data = read_data("./Day02 - Gift Shop/data.txt")
-
 
 function isinvalid(id::Int, n = nothing)
     d = Int(floor(log10(id))+1)
@@ -30,6 +28,8 @@ function part_two(data::Vector{Tuple{Int, Int}})
     println("Part Two: $res")
 end
 
+
+data = read_data("./Day02 - Gift Shop/data.txt")
 
 part_one(data)
 part_two(data)
