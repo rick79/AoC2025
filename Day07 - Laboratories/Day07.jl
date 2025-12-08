@@ -4,9 +4,6 @@ function read_data(path::String)
 end
 
 
-data = read_data("./Day07 - Laboratories/data.txt")
-
-
 function traversetm(start::CartesianIndex, map::Matrix{Char}, splitter = '^')
     res = 0
     beams = Set{Int64}()
@@ -59,6 +56,7 @@ function part_two(map::Matrix{Char})
     println("Part Two: $res")
 end
 
+data = read_data("./Day07 - Laboratories/data.txt")
 
 part_one(data)
 part_two(data)
