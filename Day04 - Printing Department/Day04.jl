@@ -3,8 +3,6 @@ function read_data(path::String)
     return [lines[y][x] for y ∈ eachindex(lines), x ∈ eachindex(lines[1])]
 end
 
-data = read_data("./Day04 - Printing Department/data.txt")
-
 
 function count_movable_crates(map::Matrix{Char}, remove=false, target='@')
     crates = findall(f->f == target, map)
@@ -44,6 +42,7 @@ function part_two(map::Matrix{Char})
     println("Part Two: $res")
 end
 
+data = read_data("./Day04 - Printing Department/data.txt")
 
 part_one(data)
 part_two(data)
