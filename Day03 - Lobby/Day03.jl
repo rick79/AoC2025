@@ -2,7 +2,6 @@ function read_data(path::String)
     return [parse.(Int, split(line, "")) for line ∈ readlines(path)]
 end
 
-data = read_data("./Day03 - Lobby/data.txt")
 
 function turnon(bank::Vector{Int}, n::Int)
     joltage = 0
@@ -30,6 +29,9 @@ function part_two(banks::Vector{Vector{Int}})
     @assert(res == 171419245422055)
     println("Part Two: $res")
 end
+
+
+data = read_data("./Day03 - Lobby/data.txt")
 
 part_one(data)
 part_two(data)
