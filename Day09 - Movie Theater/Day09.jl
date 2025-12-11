@@ -36,28 +36,26 @@ function check(rect::Tuple{CartesianIndex{2}, CartesianIndex{2}}, bounds::Vector
 end
 
 
-function part_one(data)
+function part_one(data::CartesianIndex{2})
     areas = calculate_areas(data)
     res = areas[end][2]
     println("Part One: $res")
 end
 
 
-function part_two(corners)
+function part_two(corners::CartesianIndex{2})
     bounds = create_bounds(corners)
     areas = calculate_areas(data)
     res = 0
     for area ∈ areas
         (check(area[1], bounds) && area[2] > res) && (res = area[2])
     end
-    @assert(res == 1476550548)
     println("Part Two: $res")
 end
 
 
 data = read_data("./Day09 - Movie Theater/data.txt")
-using BenchmarkTools
 
-# part_one(data)
-@benchmark part_two(data)
+part_one(data)
+part_two(data)
 
