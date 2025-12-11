@@ -57,6 +57,7 @@ function part_one(data)
     println("Part One: $res")
 end
 
+
 function part_two(data)
     res = sum([solve_lin(line[4], line[3]) for line ∈ data])
     println("Part Two: $res")
@@ -64,9 +65,9 @@ end
 
 
 data = read_data("./Day10 - Factory/data.txt")
-using BenchmarkTools
+
 part_one(data)
-@benchmark part_two(data)
+part_two(data)
 
 
 
