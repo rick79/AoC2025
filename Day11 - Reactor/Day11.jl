@@ -27,7 +27,6 @@ end
 
 data = read_data("./Day11 - Reactor/data.txt")
 
-using BenchmarkTools
 
-#part_one(data)
-@benchmark part_two(data)
+part_one(data)
+part_two(data)
